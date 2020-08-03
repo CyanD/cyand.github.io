@@ -1,41 +1,22 @@
 # Setup
-title: Cyand
-tagline: Just for note taking of my thought about something I care
-url: https://cyand.github.io
-paginate: 1
-baseurl: /
-permalink: pretty
+title:               Cyand
+tagline:             'Note taking of thought about something I care'
+description:         'Something about Text-to-speech, Deep-learning, and Computer Vision.'
+url:                 https://cyand.github.io
+baseurl:             /
+paginate:            1
+permalink:           pretty
+
+# About/contact
+author:
+  name:              Yunchao He
+  url:               https://twitter.com/candlewill
+  email:             yunchaohe@gmail.com
 
 # Gems
 plugins:
-  - jekyll-gist
   - jekyll-paginate
-  - jekyll-seo-tag
-
-# Optimize Jekyll
-exclude:
-  - .editorconfig
-  - .git
-  - .jekyll-cache
-  - Gemfile
-  - Gemfile.lock
-  - LICENSE.md
-  - README.md
-
-sass:
-  sass_dir: _sass
-  style: :compressed
-
-# Options
-
-# Replace this value and uncomment to enable Google Analytics tracking
-# ga_analytics: UA-000000-0
-
-# Specify the author for blog posts
-author:
-  name: Yunchao He
-  url: https://twitter.com/candlewill
-  email: yunchaohe@gmail.com
 
 # Custom vars
-version: 0.1.0
+version:             0.1.0
+google_analytics_id: #UA-XXXX-Y
