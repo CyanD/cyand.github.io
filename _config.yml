@@ -1,9 +1,9 @@
 # Setup
 title: Cyand
 tagline: Just for note taking of my thought about something I care
-url: https://cyand.github.io/
+url: https://cyand.github.io
 paginate: 1
-baseurl: https://cyand.github.io/cyand.github.io/
+baseurl: /
 permalink: pretty
 
 # Gems
