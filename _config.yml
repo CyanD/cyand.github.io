@@ -1,9 +1,9 @@
 # Setup
-title: Poole
-tagline: The Jekyll Butler
-url: https://getpoole.com
+title: Cyand
+tagline: Just for note taking of my thought about something I care
+url: https://cyand.github.io/
 paginate: 1
-baseurl: ""
+baseurl: https://cyand.github.io/cyand.github.io/
 permalink: pretty
 
 # Gems
@@ -33,9 +33,9 @@ sass:
 
 # Specify the author for blog posts
 author:
-  name: Mark Otto
-  url: https://twitter.com/mdo
-  email: markdotto@gmail.com
+  name: Yunchao He
+  url: https://twitter.com/candlewill
+  email: yunchaohe@gmail.com
 
 # Custom vars
-version: 3.0.0
+version: 0.1.0
