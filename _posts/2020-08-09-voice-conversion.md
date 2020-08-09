@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: A simple overview about some voice conversion papers
@@ -51,6 +50,6 @@ The proposed method has higher flexibility than the baseline.
 
 
 # References
-[1] One-shot Voice Conversion with Global Speaker Embeddings, https://www.isca-speech.org/archive/Interspeech_2019/pdfs/2365.pdf
-[2] A Compact Framework for Voice Conversion Using Wavenet Conditioned on Phonetic Posteriorgrams. https://ieeexplore.ieee.org/document/8682938
-[3] Phonetic posteriorgrams for many-to-one voice conversion without parallel data training. https://ieeexplore.ieee.org/document/7552917
+1. One-shot Voice Conversion with Global Speaker Embeddings, https://www.isca-speech.org/archive/Interspeech_2019/pdfs/2365.pdf
+2. A Compact Framework for Voice Conversion Using Wavenet Conditioned on Phonetic Posteriorgrams. https://ieeexplore.ieee.org/document/8682938
+3. Phonetic posteriorgrams for many-to-one voice conversion without parallel data training. https://ieeexplore.ieee.org/document/7552917
