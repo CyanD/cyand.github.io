@@ -3,7 +3,7 @@ layout: post
 title: A simple overview about some voice conversion papers
 ---
 
-# A simple overview about some voice conversion papers
+# Voice Conversion
 Voice conversion (VC) is a technique to modify the speech from source speaker to make it sound like being uttered by a target speaker while keeping the linguistic content unchanged.
 Many methods of VC require the target speaker has many speech data for training. However, one-shot VC just need one utterance from the target speaker.  
 According to the number of source and target speakers, VC system can be classified as one-to-one, one-to-many, many-to-one, and many-to-many systems. 
