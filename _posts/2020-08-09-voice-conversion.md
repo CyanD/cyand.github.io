@@ -24,7 +24,7 @@ The method to unify the conversion function and the vocoder is:
 3. Up-sampling the encoded features into the desired resolution of WaveNet to generate the target speaker’s waveform.
 
 The proposed method is shown in this figure:
-![unified vc](./../assets/image/voice_conversion/unified_vc.png)
+![unified vc](/assets/image/voice_conversion/unified_vc.png)
 
 There are two training stages. The first stage is to train a ASR model to extract the PPGs. And the second stage is to train a WaveNet vocoder, who's directly conditioned on the PPGs and F0.
 
@@ -33,7 +33,7 @@ To up-sample the PPGs to frame-level length and capture some global information 
 ### Experiment
 Baseline is a separately trained conversion module and WaveNet vocoder. 
 The baseline method [3] uses phonetic posterior-grams to do many-to-one voice conversion, who architecture is depicted in the following figure:
-![ppgs for vc](https://raw.githubusercontent.com/CyanD/cyand.github.io/master/assets/image/voice_conversion/ppg_vc.png)
+![ppgs for vc](/assets/image/voice_conversion/ppg_vc.png)
 
 ### Findings
 The proposed method can achieve better results in naturalness and similarity.
@@ -63,7 +63,7 @@ To generate the waveform of the target speaker, the conditional WaveNet synthesi
 To get the embeddings  of target speakers, the utterance of target speaker is firstly fed into a speaker encoder network to generate the reference embedding, which is then employed as attention query to the GSEs  to produce the speaker embedding. The procession is exactly to the GST vectors.
 
 The architecture of the method is shown in the following figure:
-![gses-vc](../assets/image/voice_conversion/one-shot-vc.png)
+![gses-vc](/assets/image/voice_conversion/one-shot-vc.png)
 
 During the training phrase, the conditional WaveNet model is trained on a multi-speaker dataset. The WaveNet is conditioned on three factors: 1) PPGs, 2) F0s, and 3) speaker reference embeddings. The F0s are z-normalized to remove the speaker identity-related information, and the reference embedding is extracted from an random-chosen utterance of the same speaker, which ensures that reference embedding is only related to the speaker identity and has no overlap with the linguistic information. 
 
