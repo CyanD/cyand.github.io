@@ -16,3 +16,8 @@ However, the experiment result shows that the loss is higher, and the synthesize
 
 ## 2020/08/10
 Even though the loss of duration-tacotron is low enough, the synthesized speech of many speakers are not correct, and only a few samples are correct. 
+
+## 2020/08/11
+
+* Analysis the reason why duration-tacotron generates bad speech.
+* Sougou TTS slides
