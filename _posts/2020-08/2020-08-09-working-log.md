@@ -38,3 +38,7 @@ Even though the loss of duration-tacotron is low enough, the synthesized speech 
 
 * Prepare TTS dataset to train DurIAN
 * Alignment error
+
+## 2020/08/15
+
+* Montreal Forced Alignment Tool learning
