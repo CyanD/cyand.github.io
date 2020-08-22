@@ -42,3 +42,33 @@ Even though the loss of duration-tacotron is low enough, the synthesized speech 
 ## 2020/08/15
 
 * Montreal Forced Alignment Tool learning
+
+# Week i+2
+
+## 2020/08/17
+
+* TensorFlowTTS cpp_infer code review
+* DurTacoLpcnet code optimise and experiment: load mel when training to reduce disk usage
+
+
+## 2020/08/18
+
+* DurTacoLpcnet code optimise and experiment: model optimize
+
+## 2020/08/19
+
+* DurTacoLpcnet generates bad speech. Change the input sequence format.
+
+## 2020/08/20
+
+* Train MelGAN on 16k lpcnet's features
+* Test new input format. Still have no good result.
+
+## 2020/08/21
+
+* Writing working summary for level improvement.
+* Add BLSTM after up-sampled (repeated) encoder output to smooth the input. Have no good result.
+
+## 2020/08/22
+
+* Paper sign work for purchasing apartment.

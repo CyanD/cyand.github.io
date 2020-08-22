@@ -9,7 +9,16 @@ Many papers and code implementations usually use some signal processing methods 
 
 2. pre-emphasis
 
+``` python
+x = librosa.core.load(wav_path, sr=16000)[0]
+signal.lfilter([1, -hparams.preemphasize], [1], x)
+```
+
 3. de-emphasis
+
+``` python
+x = signal.lfilter([1], [1, -hparams.preemphasize], x)
+```
 
 4. MFCC
 
