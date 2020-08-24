@@ -50,7 +50,6 @@ Even though the loss of duration-tacotron is low enough, the synthesized speech 
 * TensorFlowTTS cpp_infer code review
 * DurTacoLpcnet code optimise and experiment: load mel when training to reduce disk usage
 
-
 ## 2020/08/18
 
 * DurTacoLpcnet code optimise and experiment: model optimize
@@ -72,3 +71,10 @@ Even though the loss of duration-tacotron is low enough, the synthesized speech 
 ## 2020/08/22
 
 * Paper sign work for purchasing apartment.
+
+# Week i+3
+
+## 2020/08/24
+
+* Loan apply
+* Use MFA to do forced alignment for TTS (let frame_shift=12.5ms, frame_length=50ms)
