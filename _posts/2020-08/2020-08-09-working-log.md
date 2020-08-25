@@ -78,3 +78,9 @@ Even though the loss of duration-tacotron is low enough, the synthesized speech 
 
 * Loan apply
 * Use MFA to do forced alignment for TTS (let frame_shift=12.5ms, frame_length=50ms)
+
+## 2020/08/24
+
+* Data prepare for MFA
+* Data validation (mfa_validate_dataset)
+* Limit the duration of speech when train DurTacoLpcnet to avoid OOM error

@@ -50,6 +50,38 @@ Two special phones can be used for annotations that are not speech, `sil ` and `
 
 The only supported format for sound files is `.wav` . The basename of the sound files and the annotation files should be the same, otherwise, they would be ignored. Sampling rate >=16k, and duration < 30s.
 
+# Data validation
+
+The data validation tool is useful to check your prepared corpus.
+
+The data validation utility parses the corpus and the dictionary, prints out summary information about the corpus, and logs any of the following issues:
+
+* OOV
+* Wav file reading problem
+* Transcription file reading problem
+* Missing `.wav` files
+* Missing `.lab/.TextGrid` files
+* Sampling rate error
+* Acoustic model error, skipped if `--ignore_acoustics` is flagged
+
+Running the validation utility use this command
+
+``` 
+bin/mfa_validate_dataset corpus_directory dictionary_path [optional_acoustic_model_path]
+```
+
+I use soft links to link the source wav to the corpus directory. But sometimes, some soft links are broken. We should delete the broken soft links and the corresponding `.lab` file, here is the command to find and delete:
+
+``` bash
+find ./ -xtype l -exec sh -c 'rm {} $(basename {} .wav).lab' \;
+```
+
+Then, check if there exists broken soft links again:
+
+``` bash
+find ./ -xtype l
+```
+
 # Final model
 
 The final model is in the `.zip` format and contains the following four files:

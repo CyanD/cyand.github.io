@@ -75,9 +75,57 @@ Use `-i` to replace in place.
 
 ## 2. Loop over two files
 
-``` BASH
+``` bash
 while read -u 3 -r file1 && read -u 4 -r file2; do
   echo $file1 $file2
   …
 done 3<list1.txt 4<list2.txt
+```
+
+## 3. Git set and unset http proxy
+
+Set http proxy
+
+``` bash
+git config --global http.proxy http://proxyUsername:proxyPassword@proxy.server.com:port
+```
+
+Check current configuration
+
+``` bash
+git config --global --get-regexp http.*
+```
+
+Unset http proxy
+
+``` bash
+git config --global --unset http.proxy
+```
+
+## 4. Find all broken soft link
+
+Find all broken soft links
+
+``` bash
+find ./ -xtype l
+```
+
+Find and then delete all broken soft links
+
+``` bash
+find ./ -xtype l -delete
+```
+
+OR
+
+``` bash
+find ./ -xtype l -exec rm {} \;
+```
+
+The `\;` flag is needed to identify the end of executing command.
+
+Note `find` command can be used with more complex executing command, for example:
+
+``` bash
+find www/*.html -type f -exec sh -c "echo $(basename {})" \;
 ```
