@@ -121,6 +121,8 @@ unzip CH_g2p_example.zip.zip # g2p model is in zip format
 
 It's better to specify the `-o <output model.zip>` flag to store the trained model when calling `mfa_train_and_align` for future use.
 
+If you want to change the default configurations of alignment or training, you can specify the `--config_path PATH` flag to a yaml config file.
+
 ## Example 2: Train Chinese G2P model
 
 After example 1, one can start this example.
@@ -157,6 +159,76 @@ The reason is that you should install `libgfortran3` .
 ## 2. FileNotFoundError: [Errno 2] No such file or directory: ''
 
 This is because my file system is based on FDS. The output model cannot be in FDS. One fast solution is to change the output model to another place, hard-disk, SSD, etc.
+
+## 3. aligner.exceptions. TrainerError: No field found for key fmllr_power
+
+I have no idea how to fix this. But the first action I take is to do data validation. 
+
+``` bash
+./bin/mfa_validate_dataset <corpus> <lexicon> --ignore_acoustics -j 48
+```
+
+Here is the data validation result, but it seems like having no problems.
+
+``` text
+Setting up corpus information...
+Creating dictionary information...
+Setting up corpus_data directory...
+Skipping acoustic feature generation
+
+    =========================================Corpus=========================================
+    0 sound files
+
+    - sound files .lab transcription files
+
+    0 sound files with TextGrids transcription files
+    0 additional sound files ignored (see below)
+
+    - speakers
+    - utterances
+
+    0.000 seconds total duration
+    
+    DICTIONARY
+    ----------
+    There were no missing words from the dictionary. If you plan on using the a model trained on this dataset to align other datasets in the future, it is recommended that there be at least some missing words.
+    
+    SOUND FILE READ ERRORS
+    ----------------------
+    There were no sound files that could not be read.
+    
+    FEATURE CALCULATION
+    -------------------
+    Acoustic feature generation was skipped.
+    
+    FILES WITHOUT TRANSCRIPTIONS
+    ----------------------------
+    There were no sound files missing transcriptions.
+    
+    TRANSCRIPTIONS WITHOUT FILES
+    --------------------
+    There were no transcription files missing sound files.
+      
+    TEXTGRID READ ERRORS
+    --------------------
+    There were no issues reading TextGrids.
+    
+    UNREADABLE TEXT FILES
+    --------------------
+    There were no issues reading text files.
+    
+    UNSUPPORTED SAMPLE RATES
+    --------------------
+    There were no sound files with unsupported sample rates.
+    
+Skipping test alignments.
+```
+
+Then, I checked the error info again, which told us that there's no `fmllr_power` field. I searched this keyword on the `MontrealCorpusTools` repo on GitHub, which showed that there's only one result.
+
+![alt](/assets/image/github.scrennprint/fmllr_power.png)
+
+Why is there only one search result? Since I specified `--config_path` to a custom config file, I think `fmllr_power` is an illegal option in the `yaml` configuration file, which should be removed. Let's try to run `mfa_train_and_align` command again without specifying a custom configuration.
 
 # Reference
 

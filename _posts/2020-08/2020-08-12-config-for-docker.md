@@ -21,6 +21,7 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 apt-get update -y; apt-get install -y libsndfile1-dev
 apt-get install -y tmux 
 apt-get install -y htop
+apt-get install -y sox
 
 # pip install
 pip install librosa

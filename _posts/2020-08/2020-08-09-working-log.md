@@ -79,8 +79,16 @@ Even though the loss of duration-tacotron is low enough, the synthesized speech 
 * Loan apply
 * Use MFA to do forced alignment for TTS (let frame_shift=12.5ms, frame_length=50ms)
 
-## 2020/08/24
+## 2020/08/25
 
 * Data prepare for MFA
 * Data validation (mfa_validate_dataset)
 * Limit the duration of speech when train DurTacoLpcnet to avoid OOM error
+
+## 2020/08/26 Wed.
+
+* Train MFA align on larger dataset
+* Take out provident fund money
+* Previous work (train only on 20k utterances from a single speaker) on DurTacoLpcnet get bad samples. However, when train the same model on a multi-speaker dataset (86 speakers) the result is good. The reason I think is the Global Style Tokens Layer (GST) for one speaker is bad as it could learn the inner-variation of the speaker, but gst is good for multi-speaker. 
+* Thinking how to employ finetune training when without forced alignment result of target speakers
+* Ice skating
