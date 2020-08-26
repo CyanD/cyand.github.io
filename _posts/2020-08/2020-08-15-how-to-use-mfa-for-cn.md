@@ -175,52 +175,38 @@ Setting up corpus information...
 Creating dictionary information...
 Setting up corpus_data directory...
 Skipping acoustic feature generation
-
-    =========================================Corpus=========================================
-    0 sound files
-
-    - sound files .lab transcription files
-
-    0 sound files with TextGrids transcription files
-    0 additional sound files ignored (see below)
-
-    - speakers
-    - utterances
-
-    0.000 seconds total duration
-    
-    DICTIONARY
-    ----------
-    There were no missing words from the dictionary. If you plan on using the a model trained on this dataset to align other datasets in the future, it is recommended that there be at least some missing words.
-    
-    SOUND FILE READ ERRORS
-    ----------------------
-    There were no sound files that could not be read.
-    
-    FEATURE CALCULATION
-    -------------------
-    Acoustic feature generation was skipped.
-    
-    FILES WITHOUT TRANSCRIPTIONS
-    ----------------------------
-    There were no sound files missing transcriptions.
-    
-    TRANSCRIPTIONS WITHOUT FILES
-    --------------------
-    There were no transcription files missing sound files.
-      
-    TEXTGRID READ ERRORS
-    --------------------
-    There were no issues reading TextGrids.
-    
-    UNREADABLE TEXT FILES
-    --------------------
-    There were no issues reading text files.
-    
-    UNSUPPORTED SAMPLE RATES
-    --------------------
-    There were no sound files with unsupported sample rates.
-    
+=========================================Corpus=========================================
+0 sound files
+\* sound files .lab transcription files
+0 sound files with TextGrids transcription files
+0 additional sound files ignored (see below)
+\* speakers
+\* utterances
+0.000 seconds total duration
+DICTIONARY
+----------
+There were no missing words from the dictionary. If you plan on using the a model trained on this dataset to align other datasets in the future, it is recommended that there be at least some missing words.
+SOUND FILE READ ERRORS
+----------------------
+There were no sound files that could not be read.
+FEATURE CALCULATION
+-------------------
+Acoustic feature generation was skipped.
+FILES WITHOUT TRANSCRIPTIONS
+----------------------------
+There were no sound files missing transcriptions.
+TRANSCRIPTIONS WITHOUT FILES
+--------------------
+There were no transcription files missing sound files.
+TEXTGRID READ ERRORS
+--------------------
+There were no issues reading TextGrids.
+UNREADABLE TEXT FILES
+--------------------
+There were no issues reading text files.
+UNSUPPORTED SAMPLE RATES
+--------------------
+There were no sound files with unsupported sample rates.
 Skipping test alignments.
 ```
 
