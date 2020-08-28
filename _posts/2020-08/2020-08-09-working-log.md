@@ -97,3 +97,11 @@ Even though the loss of duration-tacotron is low enough, the synthesized speech 
 
 * Fixed MFA alignment training error resulted from duplicated wav name
 * Prepare adaptation training data from target speakers' utterances
+
+## 2020/08/28 Fri.
+
+* Check MFA align error
+* Prepare input of Gen-E2E-Train-Input tool, and use this tool to generate DurTacoLpcnet input data of target speakers
+* Start adaptation train on target speakers
+* Change DurTacoLpcnet adaptation code towards just finetune part of weights and freeze others to overcome over-fitting on 20 utterances. Another modification is to use fixed speaker embedding, obtained from a speaker encoder which is joint trained with DurTaco.
+* Adaptation training on target speakers: more words are mispronounced after fine-tune training.

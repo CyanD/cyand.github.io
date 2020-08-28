@@ -129,3 +129,13 @@ Note `find` command can be used with more complex executing command, for example
 ``` bash
 find www/*.html -type f -exec sh -c "echo $(basename {})" \;
 ```
+
+## 5. Split a large file into multiple small files
+
+Use the `split` command.
+
+Example 
+
+``` bash
+split -l 20 --additional-suffix=.txt --suffix-length=3 -d ../cleaned_user.txt speaker-
+```
