@@ -92,3 +92,8 @@ Even though the loss of duration-tacotron is low enough, the synthesized speech 
 * Previous work (train only on 20k utterances from a single speaker) on DurTacoLpcnet get bad samples. However, when train the same model on a multi-speaker dataset (86 speakers) the result is good. The reason I think is the Global Style Tokens Layer (GST) for one speaker is bad as it could learn the inner-variation of the speaker, but gst is good for multi-speaker. 
 * Thinking how to employ finetune training when without forced alignment result of target speakers
 * Ice skating
+
+## 2020/08/27 Thu.
+
+* Fixed MFA alignment training error resulted from duplicated wav name
+* Prepare adaptation training data from target speakers' utterances

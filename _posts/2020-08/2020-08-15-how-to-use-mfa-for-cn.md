@@ -162,6 +162,19 @@ This is because my file system is based on FDS. The output model cannot be in FD
 
 ## 3. aligner.exceptions. TrainerError: No field found for key fmllr_power
 
+Full error logging:
+
+``` bash
+Setting up corpus information...
+Traceback (most recent call last):
+  File "aligner/command_line/train_and_align.py", line 131, in <module>
+  File "aligner/command_line/train_and_align.py", line 64, in align_corpus
+  File "aligner/config/__init__.py", line 117, in train_yaml_to_config
+  File "aligner/trainers/base.py", line 113, in update
+aligner.exceptions.TrainerError: No field found for key fmllr_power
+[68379] Failed to execute script train_and_align
+```
+
 I have no idea how to fix this. But the first action I take is to do data validation. 
 
 ``` bash
@@ -215,6 +228,50 @@ Then, I checked the error info again, which told us that there's no `fmllr_power
 ![alt](/assets/image/github.scrennprint/fmllr_power.png)
 
 Why is there only one search result? Since I specified `--config_path` to a custom config file, I think `fmllr_power` is an illegal option in the `yaml` configuration file, which should be removed. Let's try to run `mfa_train_and_align` command again without specifying a custom configuration.
+
+About 10 hours later, error occurs again, but it's a different error.
+
+``` text
+Calculating CMVN...
+[42490] Failed to execute script train_and_align
+Traceback (most recent call last):
+  File "aligner/command_line/train_and_align.py", line 131, in <module>
+  File "aligner/command_line/train_and_align.py", line 70, in align_corpus
+  File "aligner/aligner/trainable.py", line 80, in train
+  File "aligner/trainers/monophone.py", line 86, in init_training
+  File "aligner/corpus.py", line 843, in get_feat_dim
+ValueError: invalid literal for int() with base 10: ''
+Initializing training for mono...
+```
+
+When located the source [here](https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner/blob/62a40e2337448752a4b8fc7a4ec9cbf3f159fbff/aligner/corpus.py#L843), I found the binary `feat-to-len` couldn't execute successful. 
+
+``` text
+./lib/thirdparty/bin/feat-to-dim: error while loading shared libraries: libkaldi-util.so: cannot open shared object file: No such file or directory
+```
+
+The solution is easy now. We need to specify where the `libkaldi-util.so` lib is located.
+
+``` bash
+find ./ -name libkaldi-util.so # output: ./lib/thirdparty/bin/libkaldi-util.so
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$(readlink -f  ./lib/thirdparty/bin)
+```
+
+To further avoid other `.so` found error, I add all the lib paths to the `LD_LIBRARY_PATH` variable.
+
+``` bash
+find ./ -name '*.so*' -exec dirname {} \; | sort -u
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$(readlink -f  ./lib)
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$(readlink -f  ./lib/numpy/core)
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$(readlink -f  ./lib/numpy/linalg)
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$(readlink -f  ./lib/numpy/random)
+```
+
+Then, try to run align again.
+
+Unfortunately, it still failed. 
+
+Finally, I looked into the source code, and found the cmvn stats were not generated. And the `compute-cmvn-stats` command showed the `contains duplicate key` info. So I realized that the waves couldn't have the same name, even though they were belonging to different speakers. I just need to rename them to make sure all waves have different names regardless of their speakers!
 
 # Reference
 
