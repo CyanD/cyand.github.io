@@ -105,3 +105,11 @@ Even though the loss of duration-tacotron is low enough, the synthesized speech 
 * Start adaptation train on target speakers
 * Change DurTacoLpcnet adaptation code towards just finetune part of weights and freeze others to overcome over-fitting on 20 utterances. Another modification is to use fixed speaker embedding, obtained from a speaker encoder which is joint trained with DurTaco.
 * Adaptation training on target speakers: more words are mispronounced after fine-tune training.
+
+# Week i+4 
+
+## 2020/08/31 Mon.
+
+* Change input from the concatenation of phone, tone, prosody into skip encoder used in DurIAN
+* Replace auto-regressive decoder in DurTacoLpcnet with LSTM without auto-regressive structure
+* MFA train without speaker information
