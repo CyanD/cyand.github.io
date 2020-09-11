@@ -23,9 +23,38 @@ title: September, 2020
 
 ##  2020/09/04 Fri.
 
+*
+
 ## Week 1 Summary
 
 * Compared the auto-regressive decoder and none auto-regressive one. Both of them could converge.
 * The duration model couldn't be well trained with only 1000 utterances, and reduced the quality of the generated speech.
 * Change the input format of model from concatenation of phoneme-tone-prosody embedding, into skip encoder, and then into sum. The sum of phoneme-tone-prosody embedding performed the best, since there's no information loss and the tone/prosody information was better fused into the phoneme embeddings.
 * Prepare for the oral defense.
+
+# Week 2
+
+## 2020/09/07 Mon.
+
+* Sum of phoneme tone and prosody embedding still generated bad speech
+
+## 2020/09/08 Tue.
+
+* Analysis the reason why generated speech is not good.
+
+## 2020/09/09 Wed.
+
+* Start to review the espnet code
+
+## 2020/09/10 Thu.
+
+* Fix the PTTS custom op integration bug
+
+## 2020/09/11 Fri.
+
+* OP integration bug
+
+## Week 2 Summary
+
+* Pause the progress of DurationTacotron model, and turn to use the espnet
+* Fixing the custom OP integration error
