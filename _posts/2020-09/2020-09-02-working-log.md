@@ -58,3 +58,16 @@ title: September, 2020
 
 * Pause the progress of DurationTacotron model, and turn to use the espnet
 * Fixing the custom OP integration error
+
+# Week 3
+
+## 2020/09/14 Mon.
+
+* Test r=1
+* Apartment purchase contract is delivered to bank
+* The shape generation paper
+
+## 2020/09/15 Tue.
+
+* Train model with r=1, and concatenation of inputs. This produced good result.
+* Improve GMM attention with duration as mu.
