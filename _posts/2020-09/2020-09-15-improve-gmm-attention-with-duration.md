@@ -29,11 +29,26 @@ Let's first look at the normal GMM attention, which could be described in the fo
 $$
 \alpha_{i, j} = \sum_{k=1}^K \frac{ \omega_{i, k}}{Z_{i, k}} exp(-\frac{(j- \mu_{i, k})^2}{2( \sigma_{i, k})^2}) 
 $$
+
 $$
 \mu_i = \mu_{i-1} +  \Delta_i
 $$
 
-This approach uses $$K$$ Gaussians to produce the attention weights $$_alpha_i$$. The mean of each Gaussian component is computed using the recurrence relation, which makes the mechanism location-relative and potentially monotonic if $$\Delta_i$$ is constrained to be positive. 
+This approach uses $$K$$ Gaussians to produce the attention weights $$\alpha_i$$. The mean of each Gaussian component is computed using the recurrence relation, which makes the mechanism location-relative and potentially monotonic if $$\Delta_i$$ is constrained to be positive.
+
+And the mixture parameters and intermediate parameters $$( \omega_i, \Delta_i, \sigma_i}$$ are computed from the attention state as follows:
+
+$$
+( \widehat{\omega_i}, \widehat{\Delta_i}, \widehat{\sigma_i}) = V tanh (Ws_i+b)
+
+Z_i =  \sqrt{2\pi\widehat{\sigma}_i^2} 
+
+\Delta_i = S_+( \widehat{\Delta}_i)
+
+\sigma_i = S_+( \widehat{\sigma}_i)
+$$
+
+In which, the $$s_i$$ is the query vector, and the $$S_+(.)$$ is the soft-plus function. 
 
 # Tool and Reference
 
@@ -43,3 +58,5 @@ This approach uses $$K$$ Gaussians to produce the attention weights $$_alpha_i$$
 ``` html
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 ```
+
+3. LOCATION-RELATIVE ATTENTION MECHANISMS FOR ROBUST LONG-FORM SPEECH SYNTHESIS. https://arxiv.org/pdf/1910.10288.pdf
