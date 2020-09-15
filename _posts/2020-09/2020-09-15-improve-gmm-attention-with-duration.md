@@ -51,7 +51,7 @@ Z_i =  \sqrt{2\pi\widehat{\sigma}_i^2}
 $$
 
 $$
-\omega_i = S_max(\widehat{\omega_i})
+\omega_i = S_{max}(\widehat{\omega_i})
 $$
 
 $$
@@ -62,7 +62,9 @@ $$
 \sigma_i = S_+( \widehat{\sigma}_i)
 $$
 
-In which, the $$s_i$$ is the query vector, and the $$S_+(.)$$ is the soft-plus function. 
+In which, the $$s_i$$ is the query vector, and the $$S_+(.)$$ is the soft-plus function, and the S_{max} is the soft-max function. 
+
+For multi-speaker models, the mean of each Gaussian component $$\mu_{i, k}$$ is hard to predict, as the speaker style variance in each speaker. However, the fail of $$\mu_{i, k}$$ prediction would lead to the mis-pronunciation of generated speech including skip or repeat words.
 
 ## Dur-GMM Attention
 
