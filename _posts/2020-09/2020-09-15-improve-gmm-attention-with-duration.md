@@ -51,6 +51,10 @@ Z_i =  \sqrt{2\pi\widehat{\sigma}_i^2}
 $$
 
 $$
+\omega_i = S_max(\widehat{\omega_i})
+$$
+
+$$
 \Delta_i = S_+( \widehat{\Delta}_i)
 $$
 
