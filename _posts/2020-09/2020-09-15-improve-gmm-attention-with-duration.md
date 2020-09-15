@@ -27,9 +27,19 @@ Even though the Dur-GMM attention has the above advantages, we should realize th
 Let's first look at the normal GMM attention, which could be described in the following formula:
 
 $$
-M = \left( \begin{array}{ccc}
-x_{11} & x_{12} & \ldots \\
-x_{21} & x_{22} & \ldots \\
-\vdots & \vdots & \ldots \\
-\end{array} \right)
+\alpha_{i, j} = \sum_{k=1}^K \frac{ \omega_{i, k}}{Z_{i, k}} exp(-\frac{(j- \mu_{i, k})^2}{2( \sigma_{i, k})^2}) 
 $$
+$$
+\mu_i = \mu_{i-1} +  \Delta_i
+$$
+
+This approach uses $$K$$ Gaussians to produce the attention weights $$_alpha_i$$. The mean of each Gaussian component is computed using the recurrence relation, which makes the mechanism location-relative and potentially monotonic if $$\Delta_i$$ is constrained to be positive. 
+
+# Tool and Reference
+
+1. Latex editor: http://www.sciweavers.org/free-online-latex-equation-editor
+2. Method to enable MathJax rendering: 
+
+``` html
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+```
