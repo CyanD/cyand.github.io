@@ -24,6 +24,8 @@ Even though the Dur-GMM attention has the above advantages, we should realize th
 
 # Method
 
+## GMM attention
+
 Let's first look at the normal GMM attention, which could be described in the following formula:
 
 $$
@@ -36,19 +38,29 @@ $$
 
 This approach uses $$K$$ Gaussians to produce the attention weights $$\alpha_i$$. The mean of each Gaussian component is computed using the recurrence relation, which makes the mechanism location-relative and potentially monotonic if $$\Delta_i$$ is constrained to be positive.
 
-And the mixture parameters and intermediate parameters $$( \omega_i, \Delta_i, \sigma_i}$$ are computed from the attention state as follows:
+And the mixture parameters and intermediate parameters $$( \omega_i, \Delta_i, \sigma_i)$$ are computed from the attention state as follows:
 
 $$
 ( \widehat{\omega_i}, \widehat{\Delta_i}, \widehat{\sigma_i}) = V tanh (Ws_i+b)
+$$
 
+where 
+
+$$
 Z_i =  \sqrt{2\pi\widehat{\sigma}_i^2} 
+$$
 
+$$
 \Delta_i = S_+( \widehat{\Delta}_i)
+$$
 
+$$
 \sigma_i = S_+( \widehat{\sigma}_i)
 $$
 
 In which, the $$s_i$$ is the query vector, and the $$S_+(.)$$ is the soft-plus function. 
+
+## Dur-GMM Attention
 
 # Tool and Reference
 
