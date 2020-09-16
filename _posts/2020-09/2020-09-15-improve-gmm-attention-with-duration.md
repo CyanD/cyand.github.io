@@ -68,6 +68,34 @@ For multi-speaker models, the mean of each Gaussian component $$\mu_{i, k}$$ is 
 
 ## Dur-GMM Attention
 
+As the mean of each Gaussian component $$\mu_i$$ is importance and difficult, we use duration of phoneme as a regulation to make it more easy and stable when learning. We simply limit the mean $$\mu_i$$ to a range centered on the position index of current attended phoneme.
+
+$$
+\mu_{i, k} = p_i + tanh(\delta_{i, j})
+$$
+
+The $$\delta_{i, j}$$ is a small disturb, or regarded as the position residual, and predicted by the model. The $$tanh$$ function is used to limit the residual to be a small number in [-1, 1]. 
+
+The position $$p_i$$ could be computed from the phoneme duration $$d_j$$:
+
+$$
+p_i = \sum_{j=0}^i d_j
+$$
+
+The Dur-GMM attention could be simplified as:
+
+$$
+\alpha_{i, j} = \sum_{k=1}^K \frac{ \omega_{i, k}}{Z_{i, k}} exp(-\frac{(j- (p_i + tanh(\delta_{i, j})))^2}{2( \sigma_{i, k})^2}) 
+$$
+
+And the $$\mu_{i, k}$$ and $$\widehat{\Delta_i}$$ parameters is no longer needed.
+
+$$
+( \widehat{\omega_i}, \widehat{\sigma_i}) = V tanh (Ws_i+b)
+$$
+
+In my experiment, this method generated better speech, especially for multi-speakers models, the there's no mis-pronunciation error.
+
 # Tool and Reference
 
 1. Latex editor: http://www.sciweavers.org/free-online-latex-equation-editor
