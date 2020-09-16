@@ -91,7 +91,7 @@ $$
 And the $$\mu_{i, k}$$ and $$\widehat{\Delta_i}$$ parameters is no longer needed.
 
 $$
-( \widehat{\omega_i}, \widehat{\sigma_i}) = V tanh (Ws_i+b)
+( \widehat{\omega_i}, \delta_{i}, \widehat{\sigma_i}) = V tanh (Ws_i+b)
 $$
 
 In my experiment, this method generated better speech, especially for multi-speakers models, the there's no mis-pronunciation error.
