@@ -71,3 +71,23 @@ title: September, 2020
 
 * Train model with r=1, and concatenation of inputs. This produced good result.
 * Improve GMM attention with duration as mu.
+
+## 2020/09/16 Wed.
+
+* Target user recording data preprocess
+* Adaptive training on target speakers
+
+## 2020/09/17 Thu.
+
+* Adaptive training experiment on target speakers: Good result before adaptation, but poor result after.
+* Patent writing.
+
+## 2020/09/18 Fri.
+
+* Analysis the potential problem in the data of target speakers
+
+## Week 3 Summary
+
+* Experiment r=1; Change input format into concatenation
+* Process three male and three female target speaker data
+* Adaptive training experiment on target speakers
