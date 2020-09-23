@@ -85,9 +85,24 @@ title: September, 2020
 ## 2020/09/18 Fri.
 
 * Analysis the potential problem in the data of target speakers
+* Thought: Learning gradient field for model adaptation
 
 ## Week 3 Summary
 
 * Experiment r=1; Change input format into concatenation
 * Process three male and three female target speaker data
 * Adaptive training experiment on target speakers
+
+# Week 3
+
+## 2020/09/21 Mon.
+
+* Adaptive training experiment
+
+## 2020/09/22 Tue.
+
+* Adaptive training experiment on AR and None-AR 
+
+## 2020/09/23 Wed.
+
+* Emphasis the weight of vowel frame loss when adaptation training to avoid the u/v prediction error
