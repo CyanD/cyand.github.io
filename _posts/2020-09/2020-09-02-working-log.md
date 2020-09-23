@@ -106,3 +106,4 @@ title: September, 2020
 ## 2020/09/23 Wed.
 
 * Emphasis the weight of vowel frame loss when adaptation training to avoid the u/v prediction error
+* Update new samples
