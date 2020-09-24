@@ -139,3 +139,19 @@ Example
 ``` bash
 split -l 20 --additional-suffix=.txt --suffix-length=3 -d ../cleaned_user.txt speaker-
 ```
+
+## 6. Convert multiple `.pcm` audios into `wav` format
+
+Use find and sox command:
+
+The `pcm` waves have `.raw` suffix names.
+
+``` bash
+find ./ -name '*.raw' -exec sh -c 'base=$(basename {} .raw); sox -r 16000 -e signed -b 16 -c 1 $base.raw $base.wav' \;
+```
+
+If the `pcm` waves have `.pcm` suffix names, then, add `-t raw` as the first argument of `sox` .
+
+``` bash
+find ./ -name '*.pcm' -exec sh -c 'base=$(basename {} .pcm); sox -t raw -r 16000 -e signed -b 16 -c 1 $base.pcm $base.wav' \;
+```
