@@ -93,7 +93,7 @@ title: September, 2020
 * Process three male and three female target speaker data
 * Adaptive training experiment on target speakers
 
-# Week 3
+# Week 4
 
 ## 2020/09/21 Mon.
 
@@ -107,3 +107,13 @@ title: September, 2020
 
 * Emphasis the weight of vowel frame loss when adaptation training to avoid the u/v prediction error
 * Update new samples
+
+## 2020/09/24 Thu.
+
+* Use WebRTC tool to reduce noise of target speech
+* iteration = 200 vs 1000
+
+## 2020/09/25 Fri.
+
+* Apply CMVN on acoustic features
+* New model architecture
