@@ -117,3 +117,20 @@ title: September, 2020
 
 * Apply CMVN on acoustic features
 * New model architecture
+
+## 2020/09/27 Sun.
+
+* Coding the multi-head DurationTacotron
+* Speaker-dependent mean-variance normalization on features
+
+# Week 5
+
+## 2020/09/28 Mon.
+
+* Test on the multi-head DurationTacotron source model
+* Compare the impact of noise reduction methods on target speech
+
+## 2020/09/29 Mon.
+
+* Simplify the DurationTacotron model and make it be real time on CPU
+* More adaptation experiment on the multi-head DurationTacotron model
