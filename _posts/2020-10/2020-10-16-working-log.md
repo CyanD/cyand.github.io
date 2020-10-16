@@ -14,7 +14,7 @@ title: October, 2020
 
 * Test the No_blstm durtaco model performance on the target speaker: cpu rtf in [0.2, 0.27] using tf checkpoint
 
-## Week 2
+# Week 2
 
 ## 2020/10/12 Mon.
 
@@ -36,3 +36,7 @@ title: October, 2020
 * Process the test text and generate the speech for MOS test.
 * Regulate the finetuned parameters to be close to the source model: add l2 loss of the finetuned parameters.
 * English word pronunciation is not good as there's little English in the training data.
+
+## 2020/10/16 Fri.
+
+* Check quality of the ASR dataset
