@@ -68,13 +68,15 @@ title: October, 2020
 
 # Week 4
 
-## 2020/10/16 Fri.
+## 2020/10/26 Mon.
 
 * [ ] HSBC bank account
     - [ ] China
     - [ ] HK
     - [ ] Ca
     - [x] Bank Statement
+    - [x] Security Device
+    - [ ] Phone call from HK
 * [ ] Stock
 * [x] Credit Card Payment
     - [x] HSBC
@@ -89,3 +91,14 @@ title: October, 2020
     - [ ] Load source model
     - [ ] Load ptts model
     - [ ] Overwrite fine-tuned parameters
+
+* Two pb models could be loaded, but one model can't overwrite another, although the Python implementation is easy to archive by:
+
+``` python
+x = sess.graph.get_tensor_by_name(x_name)
+sess.run(tf.assign(x, tf_constant(x_value)))
+```
+
+The reason why this is not possible in C++ is that there's no C++ API to get a tensor by its name.
+
+* Switch to another approach: integrate with `tf.assign` for fine-tuned parameters when exporting base model
