@@ -40,3 +40,52 @@ title: October, 2020
 ## 2020/10/16 Fri.
 
 * Check quality of the ASR dataset
+
+# Week 3
+
+## 2020/10/19 Mon.
+
+* Process the Chinese-English mixed ASR dataset
+* Experiment on Weight constrain: limit the fine-tuned parameters to be close to the base model's parameters
+
+## 2020/10/20 Tue.
+
+* Process the Chinese-English mixed ASR dataset: build the relationship of ASR phoneme and TTS phoneme
+
+## 2020/10/21 Wed.
+
+* Optimize the load procedure of PTTS: Only fine-tuned parameters are exported into the pb model
+
+## 2020/10/22 Thu.
+
+* Both source and fine-tuned model are exported to tf pb format. 
+* Only restore and overwrite fine-tuned parameters and keep others untouched when switching ptts model
+* Ptts model size 1MB, base model size 80MB; base model loading time 630ms, ptts model loading time 90ms.
+
+## 2020/10/23 Fri.
+
+* Loading pb model in C++ code.
+
+# Week 4
+
+## 2020/10/16 Fri.
+
+* [ ] HSBC bank account
+    - [ ] China
+    - [ ] HK
+    - [ ] Ca
+    - [x] Bank Statement
+* [ ] Stock
+* [x] Credit Card Payment
+    - [x] HSBC
+    - [x] CITIC
+    - [x] ICBC
+* [ ] Patent
+* [ ] Paper
+* [ ] English Learn
+    - [ ] Vocabulary
+    - [ ] Reading
+* [ ] Pb Model loading and switching in C++
+    - [ ] Load source model
+    - [ ] Load ptts model
+    - [ ] Overwrite fine-tuned parameters
