@@ -68,16 +68,15 @@ title: October, 2020
 
 # Week 4
 
-## 2020/10/26 Mon.
-
 * [ ] HSBC bank account
-    - [ ] China
+    - [x] China
     - [ ] HK
-    - [ ] Ca
+    - [ ] ~~Ca~~ (Impossible now)
     - [x] Bank Statement
     - [x] Security Device
     - [ ] Phone call from HK
-* [ ] Stock
+    - [x] Bank Card
+* [x] Stocks
 * [x] Credit Card Payment
     - [x] HSBC
     - [x] CITIC
@@ -87,10 +86,12 @@ title: October, 2020
 * [ ] English Learn
     - [ ] Vocabulary
     - [ ] Reading
-* [ ] Pb Model loading and switching in C++
-    - [ ] Load source model
-    - [ ] Load ptts model
-    - [ ] Overwrite fine-tuned parameters
+* [x] Pb Model loading and switching in C++
+    - [x] Load source model
+    - [x] Load ptts model
+    - [x] Overwrite fine-tuned parameters
+
+## 2020/10/26 Mon.
 
 * Two pb models could be loaded, but one model can't overwrite another, although the Python implementation is easy to archive by:
 
@@ -102,3 +103,15 @@ sess.run(tf.assign(x, tf_constant(x_value)))
 The reason why this is not possible in C++ is that there's no C++ API to get a tensor by its name.
 
 * Switch to another approach: integrate with `tf.assign` for fine-tuned parameters when exporting base model
+* Tried the Session `Extend` method which turned out not possible too, as the `Extend` method requires the two graph have no same node names. 
+* No C++ version `tf.get_variable` API to reuse a variable
+
+## 2020/10/27 Tue.
+
+* Export base model integrated with fine-tuned parameters auto re-assign operations
+* C++ coding is ongoing
+
+## 2020/10/30 Fri.
+
+* Integrate source and ptts model inference in the tts engine. Done.
+* The C++ switch and inference model passed test.
